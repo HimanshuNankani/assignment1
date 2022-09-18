@@ -1,13 +1,15 @@
-const ExpenseItem = (props) => {
+import ExpenseDate from "./ExpenseDate";
 
-    const date = props.details.date.toISOString();
-    return (
-        <div className="expenses myexpenseclass">
-            <p>{date}</p>
-            <p>{props.details.title}</p>
-            <p>{props.details.amount}</p>
-        </div>
-    );
-}
+const ExpenseItem = (props) => {
+  return (
+    <div className="expense-item myexpenseclass">
+      <ExpenseDate date={props.details.date} />
+      <div className="expense-item__description">
+        <h2>{props.details.title}</h2>
+        <div className="expense-item__price">₹ {props.details.amount}</div>
+      </div>
+    </div>
+  );
+};
 
 export default ExpenseItem;
